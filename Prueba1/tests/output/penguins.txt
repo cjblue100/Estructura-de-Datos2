@@ -1,0 +1,6 @@
+Valid BMP
+Size: 152222
+Offset: 122
+Size: 108
+Width: 259
+Height: 195
