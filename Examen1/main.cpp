@@ -21,6 +21,12 @@ void writeZip(char *argv,std::ofstream &out)
     lfh.comp_method=0;
     lfh.mtime=zip::makeTime(4,30,15);
     lfh.mdate=zip::makeDate(20,8,2020);
+    in.seekg(0,in.end);
+    long posi=in.tellg();
+    lfh.comp_file_size=posi;
+    lfh.orig_file_size=posi;
+    std::string nambe=argv;
+    lfh.name_len=nambe.length();
     
     out.write(reinterpret_cast<char*>(&lfh),sizeof(LocalFileHeader));
     out.write(argv,sizeof(argv));
@@ -29,8 +35,8 @@ void writeZip(char *argv,std::ofstream &out)
 
     CentralDirectoryFileHeader cdh;
     
-
-    cdh.signature=0x02014b50;
+    uint32_t sig=0x02014b50;
+    cdh.signature=sig;
 
     
 
@@ -46,15 +52,17 @@ void writeZip(char *argv,std::ofstream &out)
     cdh.crc32=0;
     cdh.mtime=zip::makeTime(4,30,15);
     cdh.mdate=zip::makeDate(20,8,2020);
-
+    cdh.orig_file_size=posi;
+    cdh.comp_file_size=posi;
+    cdh.name_len=nambe.length();
     out.write(reinterpret_cast<char*>(&cdh),sizeof(CentralDirectoryFileHeader));
     
     
 
     EndOfCentralDirectory ecd;
 
-   
-    ecd.signature=0x06054b50;
+    sig=0x06054b50;
+    ecd.signature=sig;
     ecd.disk_number=0;
     ecd.disk_start=0;
     ecd.cd_records1=3;
