@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     // argv[4] -> output zip file
     
-    std::ofstream out(argv[4]);
+    std::ofstream out(argv[4],std::ios::app);
 
     /*uint32_t signature;
     uint16_t version;
@@ -34,9 +34,11 @@ int main(int argc, char *argv[])
     uint32_t orig_file_size;
     uint16_t name_len;
     uint16_t extra_len;*/
-    int offset1=0;
+    int offset1[3];
+    
     for(int x=1;x<4;x++)
     {
+    
 
     std::ifstream in(argv[x]);
     LocalFileHeader lfh;
@@ -57,20 +59,22 @@ int main(int argc, char *argv[])
     std::string nombre=argv[x];
     lfh.name_len=nombre.size();
     lfh.extra_len=0;
-
+    
     unsigned char buf[size];
     in.seekg(0,std::ios::beg);
-    offset1=in.tellg();
-    in.read(reinterpret_cast<char*>(&buf),sizeof(buf));
     
+    in.read(reinterpret_cast<char*>(&buf),sizeof(buf));
+    offset1[x]=out.tellp();
     out.write(reinterpret_cast<const char*>(&lfh),sizeof(LocalFileHeader));
     out.write(reinterpret_cast<const char*>(nombre.data()),nombre.size());
     out.write(reinterpret_cast<const char*>(buf),sizeof(buf));
-
+    
+    in.clear();
+    in.close();
     }
     uint32_t offset = out.tellp();
 
-
+    
     /*uint32_t signature;
     uint16_t version_made;
     uint16_t version_extract;
@@ -114,7 +118,7 @@ int main(int argc, char *argv[])
     cdh.disk_number=0;
     cdh.file_attrs1=0;
     cdh.file_attrs2=0;
-    cdh.file_offset=offset1;
+    cdh.file_offset=offset1[x];
 
     out.write(reinterpret_cast<char *>(&cdh),sizeof(CentralDirectoryFileHeader));
     out.write(reinterpret_cast<const char*>(nombre.data()),nombre.size());
