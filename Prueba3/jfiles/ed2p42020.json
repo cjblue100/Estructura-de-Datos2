@@ -1,0 +1,44 @@
+[
+    {
+        "Cuenta": 11741123,
+        "Nombre": "CARLOS JOSE",
+        "Apellido": "CONTRERAS RIVERA",
+        "Inasistencias": 0
+    },
+    {
+        "Cuenta": 21341085,
+        "Nombre": "DANIEL EDUARDO",
+        "Apellido": "MÁRQUEZ PERLA",
+        "Inasistencias": 0
+    },
+    {
+        "Cuenta": 21641185,
+        "Nombre": "MARCO VINICIO",
+        "Apellido": "LANZA MOLINA",
+        "Inasistencias": 0
+    },
+    {
+        "Cuenta": 21751002,
+        "Nombre": "LEONEL ALBERTO",
+        "Apellido": "THOMAS VILLALOBOS",
+        "Inasistencias": 12
+    },
+    {
+        "Cuenta": 21911019,
+        "Nombre": "BILANDER FERNANDEZ",
+        "Apellido": "EWENS",
+        "Inasistencias": 0
+    },
+    {
+        "Cuenta": 21911298,
+        "Nombre": "SELVIN RAUL",
+        "Apellido": "RODRIGUEZ GIRON",
+        "Inasistencias": 10
+    },
+    {
+        "Cuenta": 21921002,
+        "Nombre": "GABRIELA PAOLA",
+        "Apellido": "DIAZ REYNAUD",
+        "Inasistencias": 0
+    }
+]

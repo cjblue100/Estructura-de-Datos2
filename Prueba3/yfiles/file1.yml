@@ -1,0 +1,13 @@
+anothernumber: 15.3
+array: 
+  - 1
+  - asdf
+  - 
+    key1: val1
+    key2: val2
+bool: true
+name: value
+number: 20
+subnode: 
+  key1: val1
+  key2: val2

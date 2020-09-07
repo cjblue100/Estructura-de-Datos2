@@ -1,0 +1,18 @@
+{
+    "name": "value",
+    "number": 20,
+    "anothernumber": 15.3,
+    "bool": true,
+    "array": [
+      1,
+      "asdf",
+      {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    ],
+    "subnode": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+}
