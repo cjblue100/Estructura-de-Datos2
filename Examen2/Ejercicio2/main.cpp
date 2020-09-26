@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         std::cerr << "Usage: " << argv[0] << " <output file>\n";
         return 1;
     }
-    std::ifstream in(argv[1]);
+    
     std::ofstream out(argv[1], std::ios::out|std::ios::trunc);
 
     if (!out.is_open())
@@ -29,29 +29,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
-    int wordCunt=0;
-    int entrycont;
-    int entryoffset;
-
-
-    IIdx::IndexData id;
-    std::String name;
-    in.read(reinterpret_cast<char*>(&name),name.size());
-    id.country=name;
-    std::vector<uint32_t> locati;
-    in.read(reinterpret_cast<char*>(&locati),locati.size());
-    id.locations=locati;
-
-    IIdx::FileHeader fh;
-    fh.word_count=locati.size();
-    fh.crc=CRC::Calculate(reinterpret_cast<char *>(&b),sizeof(header) - sizeof(uint32_t),CRC::CRC_32());
-
-
-    IIdx::FileIndexEntry fie;
     
     
-    fie.name=name;
     
 
 

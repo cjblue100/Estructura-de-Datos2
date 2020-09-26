@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include<iostream>
-
+#include "CRC.h"
 namespace IIdx
 {
     struct FileHeader
