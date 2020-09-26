@@ -13,11 +13,11 @@ TEST_CASE("Checksum: Strings with lenght < 4")
 
 TEST_CASE("Checksum: Strings with lenght > 4")
 {
-    CHECK( Checksum::compute("Hello World") == 0xb79a9394 );
-    CHECK( Checksum::compute("Hola Mundo") == 0xb790939f );
-    CHECK( Checksum::compute("CARLOS JOSE CONTRERAS RIVERA") == 0x6d6b8d6a );
-    CHECK( Checksum::compute("LEONEL ALBERTO THOMAS VILLALOBOS") == 0x6e6e9071 );
-    CHECK( Checksum::compute("BILANDER FERNANDEZ EWENS") == 0x6f726e6d );
-    CHECK( Checksum::compute("SELVIN RAUL RODRIGUEZ GIRON") == 0x636c9358 );
-    CHECK( Checksum::compute("GABRIELA PAOLA DIAZ REYNAUD") == 0x6f79716d );
+    CHECK( Checksum::compute("Hello World") == 0xd60dd805 );
+    CHECK( Checksum::compute("Hola Mundo") == 0x32d3fe11 );
+    CHECK( Checksum::compute("CARLOS JOSE CONTRERAS RIVERA") == 0xdf1e032b );
+    CHECK( Checksum::compute("LEONEL ALBERTO THOMAS VILLALOBOS") == 0x96def6a2 );
+    CHECK( Checksum::compute("BILANDER FERNANDEZ EWENS") == 0x644b6c3f );
+    CHECK( Checksum::compute("SELVIN RAUL RODRIGUEZ GIRON") == 0xda111838 );
+    CHECK( Checksum::compute("GABRIELA PAOLA DIAZ REYNAUD") == 0x260c184c );
 }
